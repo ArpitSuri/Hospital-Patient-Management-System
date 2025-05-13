@@ -17,7 +17,7 @@ const AdminDashboard = () => {
             <aside className="w-64 bg-gray-900 text-white p-5 space-y-4">
                 <Link to="/adminDashboard"><h2 className="text-xl font-bold mb-3">Admin Dashboard</h2></Link>
                 <nav className="flex flex-col gap-3">
-                    <Link to="/adminDashboard">Appointments</Link>
+                    <Link to="appointments">Appointments</Link>
                     <Link to="doctors">Doctors</Link>
                     <Link to="departments">Departments</Link>
                 </nav>

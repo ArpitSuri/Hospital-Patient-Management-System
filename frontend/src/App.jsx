@@ -10,9 +10,8 @@ import DepartmentsPage from './adminDashboard/departmentPage'
 import ProtectedRoute from './Helpers/ProtectedRoute'
 import Login from './publicPages/Login'
 import HomePage from './publicPages/HomePage'
-import Header from './components/Header'
-import Dashboard from './patientDashboard/DashBoard'
 import PatientRecordDashboard from './patientDashboard/DashBoard'
+import AdminHome from './adminDashboard/adminDashboard'
 
 
 function App() {
@@ -26,7 +25,8 @@ function App() {
           <Route path="/appointment" element={<AppointmentForm />} />
           <Route path="/login" element={<Login />} />
           <Route path="adminDashboard" element={<ProtectedRoute allowedRole="admin"> <AdminDashboard /> </ProtectedRoute>}>
-            <Route  index element={<AppointmentsPage />} />
+          <Route index element={<AdminHome />} />
+            <Route  path='appointments' element={<AppointmentsPage />} />
             <Route path="doctors" element={<DoctorsPage />} />
             <Route path="departments" element={<DepartmentsPage />} />
             <Route path="patientRecord" element={<PatientRecordDashboard />} />
