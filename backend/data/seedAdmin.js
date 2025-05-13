@@ -7,7 +7,7 @@ dotenv.config();
 
 const seedAdmin = async () => {
     try {
-        await mongoose.connect("mongodb+srv://coinfogtc:gtc@clusterfirst.2evv8.mongodb.net/?retryWrites=true&w=majority&appName=ClusterFirst", {
+        await mongoose.connect(process.env.MONGODB_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
