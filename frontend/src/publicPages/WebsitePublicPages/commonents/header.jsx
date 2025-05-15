@@ -318,16 +318,7 @@ const Header = () => {
               </Link>
             </motion.div>
           ))}
-          <motion.div variants={itemVariants}>
-            <Link to="/teeth-whitening" className="block py-3 text-gray-900 hover:text-blue-600 transition-colors duration-300">
-              TEETH WHITENING
-            </Link>
-          </motion.div>
-          <motion.div variants={itemVariants}>
-            <Link to="/testimonials" className="block py-3 text-gray-900 hover:text-blue-600 transition-colors duration-300">
-              TESTIMONIALS
-            </Link>
-          </motion.div>
+
           <motion.div variants={itemVariants}>
             <Link to="/appointment" className="block py-3 text-gray-900 hover:text-blue-600 transition-colors duration-300">
               <motion.button 

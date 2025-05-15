@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import Header from "./WebsitePublicPages/commonents/header";
+
+
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -34,6 +37,7 @@ const Login = () => {
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-purple-100 to-purple-100">
+            <Header/>
             <div className="w-full max-w-md p-8">
                 <div className="bg-white rounded-lg shadow-xl overflow-hidden">
                     <div className="px-8 pt-8 pb-6 bg-purple-600">
@@ -127,6 +131,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            
         </div>
     );
 };

@@ -376,7 +376,7 @@ const DoctorsPage = () => {
                                                 style={{ border: `2px solid ${theme.primaryLight}` }}
                                             >
                                                 <img
-                                                    src={`${import.meta.env.VITE_REACT_APP_BACKEND_BASE_URL}/uploads/${doc.profileImage}`}
+                                                    src={`${doc.profileImage}`}
                                                     alt={doc.name}
                                                     className="w-full h-full object-cover"
                                                     onError={(e) => {

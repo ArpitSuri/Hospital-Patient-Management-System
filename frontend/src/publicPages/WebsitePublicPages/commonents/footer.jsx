@@ -213,6 +213,12 @@ const Footer = () => {
                     DENTIST
                   </a>
                 </li>
+
+                <li>
+                  <a href="/login" className="text-gray-300 hover:text-white transition-colors duration-200">
+                    ADMIN
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

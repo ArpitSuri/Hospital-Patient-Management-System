@@ -104,7 +104,7 @@ const PatientProfile = ({ patient, clearSelected }) => {
                                         {visit.prescriptionImageUrl && (
                                             <div className="bg-purple-100 p-1 rounded">
                                                 <img
-                                                    src={`${import.meta.env.VITE_REACT_APP_BACKEND_BASE_URL}${visit.prescriptionImageUrl}`}
+                                                    src={`${visit.prescriptionImageUrl}`}
                                                     alt="Prescription"
                                                     className="w-16 h-16 object-cover rounded"
                                                 />
@@ -124,7 +124,7 @@ const PatientProfile = ({ patient, clearSelected }) => {
                                                 <p className="text-sm font-medium text-purple-700 mb-2">Prescription:</p>
                                                 <div className="flex justify-center bg-purple-50 p-2 rounded-lg">
                                                     <img
-                                                        src={`${import.meta.env.VITE_REACT_APP_BACKEND_BASE_URL}${visit.prescriptionImageUrl}`}
+                                                        src={`${visit.prescriptionImageUrl}`}
                                                         alt="Full prescription"
                                                         className="max-w-full max-h-64 object-contain"
                                                     />

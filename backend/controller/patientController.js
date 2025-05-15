@@ -59,13 +59,15 @@ const addVisit = async (req, res) => {
     try {
         const { patientId } = req.params;
 
+        const prescriptionImageUrl = req.file?.path || req.file?.secure_url || null;
+
         const visit = {
             doctorId: req.body.doctorId,
             departmentId: req.body.departmentId,
             visitDate: req.body.visitDate,
             diagnosis: req.body.diagnosis,
             notes: req.body.notes,
-            prescriptionImageUrl: req.file ? `/patientUploads/${req.file.filename}` : null
+            prescriptionImageUrl,
         };
 
         const updatedPatient = await Patient.findByIdAndUpdate(
@@ -76,10 +78,11 @@ const addVisit = async (req, res) => {
 
         res.status(200).json(updatedPatient);
     } catch (error) {
+        console.error('Error in addVisit:', error);
         res.status(400).json({ error: error.message });
     }
-  };
-
+};
+  
 export {
     createPatient,
     getAllPatients,

@@ -43,7 +43,7 @@ const DepartmentsPage = () => {
                 );
                 toast.success("Department updated");
             } else {
-                await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASE_URL}`, formData, {
+                await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASE_URL}/api/departments`, formData, {
                     headers: { "Content-Type": "multipart/form-data" },
                 });
                 toast.success("Department added");
@@ -172,7 +172,7 @@ const DepartmentsPage = () => {
                                     <td className="py-3 px-4">
                                         <div className="flex items-center">
                                             <img
-                                                src={`${import.meta.env.VITE_REACT_APP_BACKEND_BASE_URL}/uploads/${dept.image}`}
+                                                src={`${dept.image}`}
                                                 alt={dept.name}
                                                 className="w-12 h-12 object-cover rounded-full border-2 border-purple-200"
                                                 onError={(e) => {

@@ -4,7 +4,7 @@ import fs from "fs";
 export const createDoctor = async (req, res) => {
     try {
         const { name, department, specialization } = req.body;
-        const profileImage = req.file?.filename;
+        const profileImage = req.file?.path || req.file?.secure_url || null;
 
         const newDoctor = new Doctor({
             name,
@@ -40,7 +40,7 @@ export const deleteDoctor = async (req, res) => {
 
 export const updateDoctor = async (req, res) => {
     const { name, department, specialization } = req.body;
-    const profileImage = req.file?.filename;
+    const profileImage = req.file?.path || req.file?.secure_url || null;
 
     const doctor = await Doctor.findById(req.params.id);
     if (!doctor) return res.status(404).json({ error: "Doctor not found" });

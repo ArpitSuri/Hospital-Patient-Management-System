@@ -137,7 +137,7 @@ import fs from "fs";
 const createDepartment = async (req, res) => {
     try {
         const { name, specialization } = req.body;
-        const image = req.file?.filename; // Get the image filename from the uploaded file
+        const image = req.file?.path || req.file?.secure_url || null;
 
         if (!name || !specialization || !image) {
             return res.status(400).json({ error: "All fields (name, specialization, image) are required" });
@@ -183,7 +183,7 @@ const getDepartmentById = async (req, res) => {
 const updateDepartment = async (req, res) => {
     try {
         const { name, specialization } = req.body;
-        const image = req.file?.filename;
+        const image = req.file?.path || req.file?.secure_url || null;
 
         if (!name && !specialization && !image) {
             return res.status(400).json({ error: "At least one field (name, specialization, or image) must be provided to update" });
