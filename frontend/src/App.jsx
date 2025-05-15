@@ -9,9 +9,9 @@ import DoctorsPage from './adminDashboard/doctorPage'
 import DepartmentsPage from './adminDashboard/departmentPage'
 import ProtectedRoute from './Helpers/ProtectedRoute'
 import Login from './publicPages/Login'
-import HomePage from './publicPages/HomePage'
 import PatientRecordDashboard from './patientDashboard/DashBoard'
 import AdminHome from './adminDashboard/adminDashboard'
+import HomePage from './publicPages/homePageComponent/App'
 
 
 function App() {

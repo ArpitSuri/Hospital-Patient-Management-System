@@ -33,12 +33,12 @@ const Login = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-100 to-purple-100">
+        <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-purple-100 to-purple-100">
             <div className="w-full max-w-md p-8">
                 <div className="bg-white rounded-lg shadow-xl overflow-hidden">
-                    <div className="px-8 pt-8 pb-6 bg-blue-600">
+                    <div className="px-8 pt-8 pb-6 bg-purple-600">
                         <h2 className="text-3xl font-bold text-white text-center">Welcome Back</h2>
-                        <p className="text-blue-100 text-center mt-2">Please sign in to your account</p>
+                        <p className="text-purple-100 text-center mt-2">Please sign in to your account</p>
                     </div>
 
                     <form onSubmit={handleSubmit} className="px-8 py-6 space-y-6">
@@ -59,7 +59,7 @@ const Login = () => {
                                 id="email"
                                 type="email"
                                 placeholder="you@example.com"
-                                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
@@ -74,7 +74,7 @@ const Login = () => {
                                 id="password"
                                 type="password"
                                 placeholder="••••••••"
-                                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
@@ -82,28 +82,28 @@ const Login = () => {
                         </div>
 
                         <div className="flex items-center justify-between">
-                            <div className="flex items-center">
+                            {/* <div className="flex items-center">
                                 <input
                                     id="remember-me"
                                     name="remember-me"
                                     type="checkbox"
-                                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                                    className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
                                 />
                                 <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-700">
                                     Remember me
                                 </label>
-                            </div>
-                            <div className="text-sm">
-                                <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
+                            </div> */}
+                            {/* <div className="text-sm">
+                                <a href="#" className="font-medium text-purple-600 hover:text-purple-500">
                                     Forgot password?
                                 </a>
-                            </div>
+                            </div> */}
                         </div>
 
                         <button
                             type="submit"
                             disabled={isLoading}
-                            className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors disabled:opacity-50"
+                            className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-colors disabled:opacity-50"
                         >
                             {isLoading ? (
                                 <span className="flex items-center">
@@ -120,9 +120,9 @@ const Login = () => {
                     </form>
 
                     <div className="px-8 py-4 bg-gray-50 border-t border-gray-100 text-center text-sm text-gray-600">
-                        Don't have an account?{" "}
-                        <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
-                            Sign up
+                        Take me back to main website?{" "}
+                        <a href="/" className="font-medium text-purple-600 hover:text-purple-500">
+                            Click here
                         </a>
                     </div>
                 </div>
