@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Header from "../publicPages/WebsitePublicPages/commonents/header";
+import Footer from "../publicPages/WebsitePublicPages/commonents/footer";
 // import Header from "./Header";
 // import Footer from "./Footer";
 
@@ -90,11 +92,11 @@ const AppointmentForm = () => {
 
     return (
         <div className="bg-gradient-to-br from-blue-50 to-indigo-50 min-h-screen">
-            {/* <Header /> */}
+            <Header />
             <ToastContainer position="top-center" autoClose={3000} hideProgressBar={false}
                 newestOnTop closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="colored" />
 
-            <div className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8 my-15">
                 <div className="bg-white shadow-2xl rounded-2xl overflow-hidden transform transition-all duration-300 hover:shadow-3xl">
                     <div className="px-8 pt-8 pb-10 bg-gradient-to-r from-blue-600 to-indigo-600">
                         <h2 className="text-4xl font-bold text-white text-center tracking-tight">Book an Appointment</h2>
@@ -369,7 +371,7 @@ const AppointmentForm = () => {
                 </div>
             </div>
 
-            {/* <Footer /> */}
+            <Footer />
         </div>
     );
 };

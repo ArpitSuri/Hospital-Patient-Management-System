@@ -128,7 +128,7 @@ const Footer = () => {
                   className="text-white"
                 >
                   <path
-                    d="L2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10zM12 4C7.581 4 4 7.581 4 12s3.581 8 8 8 8-3.581 8-8-3.581-8-8-8z"
+                    d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10zM12 4C7.581 4 4 7.581 4 12s3.581 8 8 8 8-3.581 8-8-3.581-8-8-8z"
                     fill="currentColor"
                   />
                   <path
@@ -211,11 +211,6 @@ const Footer = () => {
                 <li>
                   <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200">
                     DENTIST
-                  </a>
-                </li>
-                <li>
-                  <a href="/login" className="text-gray-300 hover:text-white transition-colors duration-200">
-                    ADMIN
                   </a>
                 </li>
               </ul>

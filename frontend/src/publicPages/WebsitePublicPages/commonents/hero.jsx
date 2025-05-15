@@ -1,10 +1,7 @@
-import React, { use } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
-
-  const navigate = useNavigate();
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -158,7 +155,7 @@ const Hero = () => {
             whileHover="hover"
             whileTap="tap"
           >
-            <span className="relative z-10 flex items-center" onClick={() => navigate('/appointment')}>
+            <span className="relative z-10 flex items-center">
               BOOK NOW
               <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />

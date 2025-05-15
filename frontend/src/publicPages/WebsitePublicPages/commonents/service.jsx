@@ -77,7 +77,7 @@ const Services = () => {
   ];
 
   return (
-    <section id='service' ref={ref} className="py-24 bg-white relative overflow-hidden">
+    <section ref={ref} className="py-24 bg-gradient-to-br from-blue-50 via-purple-50 to-white relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full -mr-48 -mt-48 opacity-40 blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-indigo-100 to-sky-100 rounded-full -ml-32 -mb-32 opacity-40 blur-3xl"></div>

@@ -80,7 +80,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section ref={ref} className="py-28 bg-gray-50 overflow-hidden">
+    <section ref={ref} className="py-28 bg-gradient-to-br from-blue-50 via-purple-50 to-white overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-16"
