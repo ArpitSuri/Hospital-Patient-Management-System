@@ -18,7 +18,7 @@ function HomePage() {
             <Hero />
             <ServicesPreview />
             <About />
-            <BookVisit />
+            {/* <BookVisit /> */}
             <Services />
             <WhiteningServices />
             <MeetOurTeam />

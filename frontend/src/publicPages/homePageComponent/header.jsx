@@ -8,6 +8,7 @@ const Header = () => {
   const { scrollY } = useScroll();
 
   const navigate = useNavigate();
+  const MotionLink = motion(Link);
   
   // Create a smooth background blur effect
   const backgroundOpacity = useTransform(scrollY, [0, 100], [0, 0.95]);
@@ -205,7 +206,9 @@ const Header = () => {
           whileTap={{ scale: 0.95 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
         >
-          <span className="relative z-10">SCHEDULE A VISIT</span>
+          <span className="relative z-10" onClick={()=>{
+            navigate('/appointment');
+          }}>SCHEDULE A VISIT</span>
           
           {/* Button hover effect */}
           <motion.div
@@ -285,17 +288,14 @@ const Header = () => {
             </motion.a>
           ))}
           <motion.div variants={itemVariants}>
-            <motion.button
-              className="w-full mt-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-full font-semibold"
+            <MotionLink
+              to="/appointment"
+              className="w-full mt-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-full font-semibold text-center block"
               whileTap={{ scale: 0.95 }}
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                navigate("/appointment");
-              }}
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               SCHEDULE A VISIT
-            </motion.button>
-
+            </MotionLink>
           </motion.div>
         </motion.div>
       </motion.div>

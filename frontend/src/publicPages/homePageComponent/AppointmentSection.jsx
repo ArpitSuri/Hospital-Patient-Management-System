@@ -70,7 +70,7 @@ const AppointmentSection = () => {
               variants={item}
             >
               <motion.a
-                href="#booking"
+                href="/appointment"
                 className="inline-block bg-white text-gray-900 font-medium text-lg rounded-full py-4 px-10 transition-transform duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
