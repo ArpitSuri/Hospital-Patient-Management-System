@@ -16,7 +16,7 @@ if (!fs.existsSync(uploadDir)) {
 }
 
 // Configure multer storage
-const storage = multer.diskStorage({
+const storage = multer.memoryStorage({ // memory storage for vercel
     destination: function (req, file, cb) {
         cb(null, uploadDir);
     },

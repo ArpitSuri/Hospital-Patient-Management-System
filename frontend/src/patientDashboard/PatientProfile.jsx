@@ -1,48 +1,3 @@
-// import React, { useEffect, useState } from 'react';
-// import AddVisitForm from './AddVisitForm';
-// import axios from 'axios';
-
-// const PatientProfile = ({ patient, clearSelected }) => {
-//     const [fullPatient, setFullPatient] = useState(null);
-
-//     const refresh = async () => {
-//         const { data } = await axios.get(`http://localhost:8080/api/patients/${patient._id}`);
-//         setFullPatient(data);
-//     };
-
-//     useEffect(() => {
-//         if (patient) refresh();
-//     }, [patient]);
-
-//     if (!fullPatient) return <div>Loading...</div>;
-
-//     return (
-//         <div>
-//             <h2>{fullPatient.name}'s Profile</h2>
-//             <p>Age: {fullPatient.age} | Gender: {fullPatient.gender}</p>
-//             <p>Contact: {fullPatient.contact}</p>
-//             <AddVisitForm patientId={fullPatient._id} refreshPatient={refresh} />
-//             <h3>Visit History</h3>
-//             <ul>
-//                 {fullPatient.visits.map((v, i) => (
-//                     <li key={i}>
-//                         <b>{v.visitDate.slice(0, 10)}</b> - {v.diagnosis}
-//                         { console.log(v.prescriptionImage, v.prescriptionImageUrl) 
-//                     }
-//                         {v.prescriptionImageUrl && (
-//                             <img src={`http://localhost:8080${v.prescriptionImageUrl}`} alt="presc" width="100" />
-//                         )}
-//                     </li>
-//                 ))}
-//             </ul>
-//             <button onClick={clearSelected}>Back</button>
-//         </div>
-//     );
-// };
-
-// export default PatientProfile;
-
-
 import React, { useEffect, useState } from 'react';
 import AddVisitForm from './AddVisitForm';
 import axios from 'axios';
@@ -53,7 +8,7 @@ const PatientProfile = ({ patient, clearSelected }) => {
     const [selectedVisit, setSelectedVisit] = useState(null);
 
     const refresh = async () => {
-        const { data } = await axios.get(`http://localhost:8080/api/patients/${patient._id}`);
+        const { data } = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASE_URL}/api/patients/${patient._id}`);
         setFullPatient(data);
     };
 
@@ -149,7 +104,7 @@ const PatientProfile = ({ patient, clearSelected }) => {
                                         {visit.prescriptionImageUrl && (
                                             <div className="bg-purple-100 p-1 rounded">
                                                 <img
-                                                    src={`http://localhost:8080${visit.prescriptionImageUrl}`}
+                                                    src={`${import.meta.env.VITE_REACT_APP_BACKEND_BASE_URL}${visit.prescriptionImageUrl}`}
                                                     alt="Prescription"
                                                     className="w-16 h-16 object-cover rounded"
                                                 />
@@ -169,7 +124,7 @@ const PatientProfile = ({ patient, clearSelected }) => {
                                                 <p className="text-sm font-medium text-purple-700 mb-2">Prescription:</p>
                                                 <div className="flex justify-center bg-purple-50 p-2 rounded-lg">
                                                     <img
-                                                        src={`http://localhost:8080${visit.prescriptionImageUrl}`}
+                                                        src={`${import.meta.env.VITE_REACT_APP_BACKEND_BASE_URL}${visit.prescriptionImageUrl}`}
                                                         alt="Full prescription"
                                                         className="max-w-full max-h-64 object-contain"
                                                     />
