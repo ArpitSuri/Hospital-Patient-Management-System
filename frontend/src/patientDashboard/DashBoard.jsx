@@ -4,7 +4,6 @@ import PatientForm from './PatientForm';
 import PatientProfile from './PatientProfile';
 import PatientList from './PateintList';
 
-
 const PatientRecordDashboard = () => {
     const [patients, setPatients] = useState([]);
     const [selected, setSelected] = useState(null);
@@ -15,7 +14,9 @@ const PatientRecordDashboard = () => {
     const fetchPatients = async () => {
         try {
             setLoading(true);
-            const { data } = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASE_URL}/api/patients`);
+            const { data } = await axios.get(
+                `${import.meta.env.VITE_REACT_APP_BACKEND_BASE_URL}/api/patients`
+            );
             setPatients(data);
             setError(null);
         } catch (err) {
@@ -31,10 +32,10 @@ const PatientRecordDashboard = () => {
     }, []);
 
     return (
-        <div className="space-y-6">
-            <div className="flex justify-between items-center pb-4 border-b border-purple-200">
-                <h1 className="text-3xl font-bold text-purple-900">Patient Management</h1>
-
+        <div className="space-y-6 px-4 sm:px-6 md:px-8 py-4">
+            {/* Header */}
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-4 border-b border-purple-200 gap-4">
+                <h1 className="text-2xl sm:text-3xl font-bold text-purple-900">Patient Management</h1>
                 {selected && (
                     <button
                         onClick={() => setSelected(null)}
@@ -45,11 +46,13 @@ const PatientRecordDashboard = () => {
                 )}
             </div>
 
+            {/* Loading */}
             {loading ? (
                 <div className="flex justify-center items-center py-12">
                     <div className="text-purple-600 animate-pulse text-lg font-medium">Loading patient data...</div>
                 </div>
             ) : error ? (
+                // Error
                 <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-md">
                     {error}
                     <button
@@ -60,7 +63,8 @@ const PatientRecordDashboard = () => {
                     </button>
                 </div>
             ) : !selected ? (
-                <div className="grid gap-8 lg:grid-cols-2">
+                // Patient Form and List (2-column layout on large screens)
+                <div className="grid gap-6 md:grid-cols-2">
                     <div>
                         <PatientForm
                             patient={editing}
@@ -68,7 +72,7 @@ const PatientRecordDashboard = () => {
                             setEditing={setEditing}
                         />
                     </div>
-                    <div className="lg:col-span-2">
+                    <div className="md:col-span-2">
                         <PatientList
                             patients={patients}
                             fetchPatients={fetchPatients}
@@ -78,7 +82,8 @@ const PatientRecordDashboard = () => {
                     </div>
                 </div>
             ) : (
-                <div className="bg-white rounded-lg shadow-md border border-purple-100 p-6">
+                // Patient Profile view
+                <div className="bg-white rounded-lg shadow-md border border-purple-100 p-4 sm:p-6">
                     <PatientProfile patient={selected} clearSelected={() => setSelected(null)} />
                 </div>
             )}
