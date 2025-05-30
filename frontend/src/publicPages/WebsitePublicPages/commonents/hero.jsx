@@ -206,7 +206,7 @@ const Hero = () => {
       </motion.div>
       
       {/* Mobile-friendly services section */}
-      <motion.div 
+      {/* <motion.div 
         className="lg:hidden absolute bottom-20 left-0 right-0 px-6"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -225,7 +225,7 @@ const Hero = () => {
             View All Services
           </button>
         </div>
-      </motion.div>
+      </motion.div> */}
       
       {/* Scroll indicator */}
       <motion.div 
