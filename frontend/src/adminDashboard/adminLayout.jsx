@@ -54,7 +54,7 @@ const AdminDashboard = () => {
                         onClick={handleLinkClick}
                         className="flex items-center py-2 px-3 rounded-md hover:bg-purple-700 transition-colors"
                     >
-                        <span className="mr-2">🏥</span> Departments
+                        <span className="mr-2">🏥</span> Clinics
                     </Link>
                 </nav>
 

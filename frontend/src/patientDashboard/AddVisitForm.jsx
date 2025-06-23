@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Calendar, FileText, Building2, UserRound, FileImage, Plus } from 'lucide-react';
 import { toast } from 'react-toastify';
+import ToothChart from './ToothChart';
 
 const AddVisitForm = ({ patientId, refreshPatient }) => {
     const [departments, setDepartments] = useState([]);
@@ -13,6 +14,15 @@ const AddVisitForm = ({ patientId, refreshPatient }) => {
     const [image, setImage] = useState(null);
     const [loading, setLoading] = useState(false);
     const [imagePreview, setImagePreview] = useState(null);
+    const [toothNumbers, setToothNumbers] = useState([]);
+
+    // const toothOptions = [
+    //     'UR-1', 'UR-2', 'UR-3', 'UR-4', 'UR-5', 'UR-6', 'UR-7', 'UR-8',
+    //     'UL-1', 'UL-2', 'UL-3', 'UL-4', 'UL-5', 'UL-6', 'UL-7', 'UL-8',
+    //     'BR-1', 'BR-2', 'BR-3', 'BR-4', 'BR-5', 'BR-6', 'BR-7', 'BR-8',
+    //     'BL-1', 'BL-2', 'BL-3', 'BL-4', 'BL-5', 'BL-6', 'BL-7', 'BL-8'
+    // ];
+    
 
     useEffect(() => {
         const fetchDepartments = async () => {
@@ -59,6 +69,9 @@ const AddVisitForm = ({ patientId, refreshPatient }) => {
         formData.append('visitDate', visitDate);
         formData.append('departmentId', selectedDept);
         formData.append('doctorId', doctor);
+        // toothNumbers.forEach((tooth) => formData.append('toothNumbers', tooth));
+        toothNumbers.forEach(tooth => formData.append('toothNumbers', tooth));
+
         if (image) formData.append('prescriptionImage', image);
 
         try {
@@ -72,7 +85,8 @@ const AddVisitForm = ({ patientId, refreshPatient }) => {
             setImagePreview(null);
             setSelectedDept('');
             setDoctor('');
-            setLoading(false);
+            setToothNumbers([]);
+             setLoading(false);
         } catch (err) {
             console.error(err);
             toast('Failed to add visit.');
@@ -117,7 +131,7 @@ const AddVisitForm = ({ patientId, refreshPatient }) => {
             <div>
                 <label className="  mb-1 text-sm font-medium text-purple-700 flex items-center">
                     <Building2 size={16} className="mr-1" />
-                    Department:
+                    Clinics:
                 </label>
                 <select
                     value={selectedDept}
@@ -125,7 +139,7 @@ const AddVisitForm = ({ patientId, refreshPatient }) => {
                     required
                     className="w-full px-3 py-2 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white"
                 >
-                    <option value="">Select Department</option>
+                    <option value="">Select Clinics</option>
                     {departments.map((d) => (
                         <option key={d._id} value={d._id}>{d.name}</option>
                     ))}
@@ -152,9 +166,35 @@ const AddVisitForm = ({ patientId, refreshPatient }) => {
                     ))}
                 </select>
                 {!selectedDept && (
-                    <p className="mt-1 text-xs text-purple-600">Please select a department first</p>
+                    <p className="mt-1 text-xs text-purple-600">Please select a Clinics first</p>
                 )}
             </div>
+
+            {/* Tooth Numbers Selection */}
+            {/* <div>
+                <label className="mb-1 text-sm font-medium text-purple-700 flex items-center">
+                    🦷 Tooth Numbers:
+                </label>
+                <select
+                    multiple
+                    value={toothNumbers}
+                    onChange={(e) =>
+                        setToothNumbers(Array.from(e.target.selectedOptions, option => option.value))
+                    }
+                    className="w-full h-32 px-3 py-2 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white"
+                >
+                    {toothOptions.map((tooth) => (
+                        <option key={tooth} value={tooth}>
+                            {tooth}
+                        </option>
+                    ))}
+                </select>
+                <p className="text-xs text-gray-500 mt-1">Hold Ctrl (Windows) or Cmd (Mac) to select multiple.</p>
+            </div> */}
+
+            <ToothChart selectedTeeth={toothNumbers} setSelectedTeeth={setToothNumbers} />
+
+
 
             {/* Prescription Image Upload */}
             <div>

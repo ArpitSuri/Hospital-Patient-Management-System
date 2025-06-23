@@ -187,7 +187,7 @@ const AppointmentsPage = () => {
                                         <th className="p-3 text-left font-semibold" style={{ color: theme.primaryDark }}>Patient</th>
                                         <th className="p-3 text-left font-semibold" style={{ color: theme.primaryDark }}>Email</th>
                                         <th className="p-3 text-left font-semibold" style={{ color: theme.primaryDark }}>Doctor</th>
-                                        <th className="p-3 text-left font-semibold" style={{ color: theme.primaryDark }}>Department</th>
+                                        <th className="p-3 text-left font-semibold" style={{ color: theme.primaryDark }}>Clinics</th>
                                         <th className="p-3 text-left font-semibold" style={{ color: theme.primaryDark }}>Date & Time</th>
                                         <th className="p-3 text-left font-semibold" style={{ color: theme.primaryDark }}>Status</th>
                                         <th className="p-3 text-center font-semibold" style={{ color: theme.primaryDark }}>Actions</th>

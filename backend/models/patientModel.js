@@ -6,7 +6,8 @@ const visitSchema = new mongoose.Schema({
     visitDate: { type: Date, default: Date.now },
     diagnosis: String,
     notes: String,
-    prescriptionImageUrl: String
+    prescriptionImageUrl: String,
+    toothNumbers: [String],
 });
 
 const patientSchema = new mongoose.Schema({

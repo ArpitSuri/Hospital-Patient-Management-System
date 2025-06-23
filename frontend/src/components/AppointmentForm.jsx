@@ -202,7 +202,7 @@ const AppointmentForm = () => {
                             <div className="space-y-6">
                                 <div className="space-y-2">
                                     <label htmlFor="department" className="block text-sm font-medium text-gray-700">
-                                        Department
+                                        Clinics
                                     </label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -218,7 +218,7 @@ const AppointmentForm = () => {
                                             onChange={handleChange}
                                             required
                                         >
-                                            <option value="">Select Department</option>
+                                            <option value="">Select Clinics</option>
                                             {departments.map(dep => (
                                                 <option key={dep._id} value={dep._id}>{dep.name}</option>
                                             ))}
@@ -251,7 +251,7 @@ const AppointmentForm = () => {
                                             ))}
                                         </select>
                                         {!formData.department && (
-                                            <p className="text-xs text-gray-500 mt-1 ml-2">Please select a department first</p>
+                                            <p className="text-xs text-gray-500 mt-1 ml-2">Please select a Clinics first</p>
                                         )}
                                     </div>
                                 </div>

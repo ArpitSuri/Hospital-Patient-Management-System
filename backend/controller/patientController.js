@@ -55,6 +55,34 @@ const deletePatient = async (req, res) => {
     }
 };
 
+// const addVisit = async (req, res) => {
+//     try {
+//         const { patientId } = req.params;
+
+//         const prescriptionImageUrl = req.file?.path || req.file?.secure_url || null;
+
+//         const visit = {
+//             doctorId: req.body.doctorId,
+//             departmentId: req.body.departmentId,
+//             visitDate: req.body.visitDate,
+//             diagnosis: req.body.diagnosis,
+//             notes: req.body.notes,
+//             prescriptionImageUrl,
+//         };
+
+//         const updatedPatient = await Patient.findByIdAndUpdate(
+//             patientId,
+//             { $push: { visits: visit } },
+//             { new: true }
+//         ).populate('visits.doctorId visits.departmentId');
+
+//         res.status(200).json(updatedPatient);
+//     } catch (error) {
+//         console.error('Error in addVisit:', error);
+//         res.status(400).json({ error: error.message });
+//     }
+// };
+
 const addVisit = async (req, res) => {
     try {
         const { patientId } = req.params;
@@ -68,6 +96,7 @@ const addVisit = async (req, res) => {
             diagnosis: req.body.diagnosis,
             notes: req.body.notes,
             prescriptionImageUrl,
+            toothNumbers: req.body.toothNumbers || [] // Accepts array like ['UR-2', 'BL-7']
         };
 
         const updatedPatient = await Patient.findByIdAndUpdate(
@@ -82,6 +111,7 @@ const addVisit = async (req, res) => {
         res.status(400).json({ error: error.message });
     }
 };
+
   
 export {
     createPatient,

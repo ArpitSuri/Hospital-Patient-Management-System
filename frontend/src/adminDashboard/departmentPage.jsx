@@ -41,12 +41,12 @@ const DepartmentsPage = () => {
                     formData,
                     { headers: { "Content-Type": "multipart/form-data" } }
                 );
-                toast.success("Department updated");
+                toast.success("Clinic updated");
             } else {
                 await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASE_URL}/api/departments`, formData, {
                     headers: { "Content-Type": "multipart/form-data" },
                 });
-                toast.success("Department added");
+                toast.success("Clinic added");
             }
             setForm(initialForm);
             setEditingId(null);
@@ -61,7 +61,7 @@ const DepartmentsPage = () => {
         if (!window.confirm("Are you sure?")) return;
         try {
             await axios.delete(`${import.meta.env.VITE_REACT_APP_BACKEND_BASE_URL}/api/departments/${id}`);
-            toast.success("Department deleted");
+            toast.success("Clinic deleted");
             fetchData();
         } catch {
             toast.error("Delete failed");
@@ -79,7 +79,7 @@ const DepartmentsPage = () => {
 
     return (
         <div>
-            <h1 className="text-3xl font-bold mb-6 text-purple-800">Department Management</h1>
+            <h1 className="text-3xl font-bold mb-6 text-purple-800">Clinic Management</h1>
 
             {/* Form */}
             <form
@@ -88,15 +88,15 @@ const DepartmentsPage = () => {
                 encType="multipart/form-data"
             >
                 <h2 className="text-xl font-semibold text-purple-700 mb-2">
-                    {editingId ? "Update Department" : "Add New Department"}
+                    {editingId ? "Update Clinic" : "Add New Clinic"}
                 </h2>
 
                 <div className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Department Name</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Clinic Name</label>
                         <input
                             type="text"
-                            placeholder="Enter department name"
+                            placeholder="Enter Clinic name"
                             value={form.name}
                             onChange={(e) => setForm({ ...form, name: e.target.value })}
                             className="w-full border border-purple-200 p-3 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-colors"
@@ -105,10 +105,10 @@ const DepartmentsPage = () => {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Specialization</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Address</label>
                         <input
                             type="text"
-                            placeholder="Enter specialization"
+                            placeholder="Enter Address"
                             value={form.specialization}
                             onChange={(e) => setForm({ ...form, specialization: e.target.value })}
                             className="w-full border border-purple-200 p-3 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-colors"
@@ -117,7 +117,7 @@ const DepartmentsPage = () => {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Department Image</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Clinic Image</label>
                         <input
                             type="file"
                             accept="image/*"
@@ -132,7 +132,7 @@ const DepartmentsPage = () => {
                         type="submit"
                         className="w-full bg-purple-700 hover:bg-purple-600 text-white font-medium py-3 px-4 rounded-md transition-colors shadow-sm"
                     >
-                        {editingId ? "Update Department" : "Add Department"}
+                        {editingId ? "Update Clinic" : "Add Clinic"}
                     </button>
 
                     {editingId && (
@@ -153,7 +153,7 @@ const DepartmentsPage = () => {
             {/* List */}
             <div className="bg-white shadow-md rounded-lg overflow-hidden border border-purple-100">
                 <h2 className="text-xl font-semibold text-purple-800 p-4 bg-purple-50 border-b border-purple-100">
-                    Department List
+                    Clinic List
                 </h2>
 
                 <div className="overflow-x-auto">
@@ -162,7 +162,7 @@ const DepartmentsPage = () => {
                             <tr className="bg-purple-100 text-purple-800">
                                 <th className="py-3 px-4 text-left">Image</th>
                                 <th className="py-3 px-4 text-left">Name</th>
-                                <th className="py-3 px-4 text-left">Specialization</th>
+                                <th className="py-3 px-4 text-left">Address</th>
                                 <th className="py-3 px-4 text-right">Actions</th>
                             </tr>
                         </thead>
@@ -204,7 +204,7 @@ const DepartmentsPage = () => {
                             {departments.length === 0 && (
                                 <tr>
                                     <td colSpan="4" className="py-8 text-center text-gray-500">
-                                        No departments found. Add your first department above.
+                                        No Clinics found. Add your first Clinic above.
                                     </td>
                                 </tr>
                             )}

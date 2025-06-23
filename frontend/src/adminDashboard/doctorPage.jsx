@@ -255,7 +255,7 @@ const DoctorsPage = () => {
                                         className="block text-sm font-medium mb-1"
                                         style={{ color: theme.text }}
                                     >
-                                        Department
+                                        Clinics
                                     </label>
                                     <select
                                         value={form.department}
@@ -269,7 +269,7 @@ const DoctorsPage = () => {
                                         }}
                                         required
                                     >
-                                        <option value="">Select Department</option>
+                                        <option value="">Select Clinics</option>
                                         {departments.map((d) => (
                                             <option key={d._id} value={d._id}>
                                                 {d.name}
@@ -352,7 +352,7 @@ const DoctorsPage = () => {
                                 <th className="p-3 text-left">Image</th>
                                 <th className="p-3 text-left">Name</th>
                                 <th className="p-3 text-left">Specialization</th>
-                                <th className="p-3 text-left">Department</th>
+                                <th className="p-3 text-left">Clinics</th>
                                 <th className="p-3 text-center">Actions</th>
                             </tr>
                         </thead>

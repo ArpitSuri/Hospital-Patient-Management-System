@@ -112,13 +112,31 @@ const PatientProfile = ({ patient, clearSelected }) => {
                                         )}
                                     </div>
                                 </div>
+                                {visit.toothNumbers && visit.toothNumbers.length > 0 && (
+                                    <div className="mt-2">
+                                        <p className="text-sm font-semibold text-purple-700 flex items-center mb-1">
+                                            🦷 Treated Teeth:
+                                        </p>
+                                        <div className="flex flex-wrap gap-2">
+                                            {visit.toothNumbers.map((tooth, idx) => (
+                                                <span
+                                                    key={idx}
+                                                    className="px-2 py-1 text-xs bg-purple-100 text-purple-800 rounded-full border border-purple-300"
+                                                >
+                                                    {tooth}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
 
                                 {selectedVisit === i && (
                                     <div className="mt-4 pt-4 border-t border-purple-100">
-                                        <p className="text-sm text-gray-600 mb-2">
+                                        {/* <p className="text-sm text-gray-600 mb-2">
                                             <span className="font-medium text-purple-700">Notes:</span>
                                             {visit.notes || "No additional notes"}
-                                        </p>
+                                        </p> */}
                                         {visit.prescriptionImageUrl && (
                                             <div className="mt-3">
                                                 <p className="text-sm font-medium text-purple-700 mb-2">Prescription:</p>
